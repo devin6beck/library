@@ -1,0 +1,18 @@
+body {
+  display: flex;
+}
+
+#leftContainer,
+#rightContainer {
+  height: 100vh;
+}
+
+#leftContainer {
+  background-color: aqua;
+  width: 40vw;
+}
+
+#rightContainer {
+  background-color: yellow;
+  width: 60vw;
+}
