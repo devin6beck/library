@@ -1,12 +1,14 @@
 
 let myLibrary = [];
 
-function book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = (!read) ? "not read yet": "have read";
-  this.info = `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
+class book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = (!read) ? "not read yet" : "have read";
+    this.info = `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  }
 }
 
 
@@ -43,6 +45,10 @@ let title;
 let author;
 let pages;
 let boolRead;
+const booksReadTotal = document.querySelector("#booksReadTotal");
+const booksNotReadTotal = document.querySelector("#booksNotReadTotal");
+const booksTotal = document.querySelector("#booksTotal");
+
 
 
 btnAddBook.addEventListener("click", () => {
@@ -61,10 +67,13 @@ btnAddBook.addEventListener("click", () => {
   //add new book to library
   addBookToLibrary(newBook);
 
+  updateTotals(boolRead);
   showLibrary();
   resetForm();
 })
 
+// Create a new book from the form data and add it to the library
+// when Enter is pressed.
 document.addEventListener("keyup", function(e) {
   if (e.key === "Enter"){
     e.preventDefault();
@@ -77,4 +86,14 @@ function resetForm() {
   document.querySelector("#author").value = "";
   document.querySelector("#pages").value = "";
   document.querySelector("#readTrue").checked = true;
+}
+
+function updateTotals(boolRead) {
+  if (boolRead) {
+    booksReadTotal.textContent++;
+  } else {
+    booksNotReadTotal.textContent++;
+  }
+  booksTotal.textContent++;
+
 }
