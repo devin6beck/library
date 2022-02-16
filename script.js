@@ -64,3 +64,9 @@ btnAddBook.addEventListener("click", () => {
   showLibrary();
 })
 
+document.addEventListener("keyup", function(e) {
+  if (e.key === "Enter"){
+    e.preventDefault();
+    btnAddBook.click();
+  }
+})
