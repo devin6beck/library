@@ -1,5 +1,7 @@
 body {
   display: flex;
+  padding: 20px;
+  background-color: black;
 }
 
 #leftContainer,
@@ -8,11 +10,22 @@ body {
 }
 
 #leftContainer {
-  background-color: aqua;
+  background-color: rgb(235, 125, 75);
   width: 40vw;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 #rightContainer {
-  background-color: yellow;
+  background-color: rgb(241, 235, 235);
   width: 60vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#btnAddBook {
+  width: 40px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
