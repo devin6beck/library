@@ -62,6 +62,7 @@ btnAddBook.addEventListener("click", () => {
   addBookToLibrary(newBook);
 
   showLibrary();
+  resetForm();
 })
 
 document.addEventListener("keyup", function(e) {
@@ -70,3 +71,10 @@ document.addEventListener("keyup", function(e) {
     btnAddBook.click();
   }
 })
+
+function resetForm() {
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#readTrue").checked = true;
+}

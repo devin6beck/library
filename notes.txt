@@ -1,0 +1,7 @@
+- make is so that when a new book is added the form is reset to blank.
+
+- change css to make it look better
+
+- make it so that when a book is added Total Book, Books not read, and books read
+-- are +=1
+
