@@ -18,7 +18,12 @@ function addBookToLibrary(book) {
 
 // Show everything that has been put in the library
 function showLibrary() {
+  // clear the books display first
   booksDisplay.textContent = "";
+
+  // for each book in the library array create a new p element
+  // add the new books info into that new p element
+  // append that new p element to the booksDisplay.
   myLibrary.forEach (book => {
     const newPara = document.createElement("p");
     newPara.textContent = `${book.info}`;
@@ -27,7 +32,7 @@ function showLibrary() {
     
 }
 
-
+// check to see what radio button is checked. Yes or No (True or False)
 function readBool() {
   if (document.querySelector(`input[name="boolRead"]:checked`).value === "true") {
     return true;
