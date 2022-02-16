@@ -17,7 +17,7 @@ function addBookToLibrary(book) {
 // Show everything that has been put in the library
 function showLibrary() {
   booksDisplay.textContent = "";
-  myLibrary.forEach (book => booksDisplay.textContent += `${book.info}, `);
+  myLibrary.forEach (book => booksDisplay.textContent += `${book.info}`);
 }
 
 function readBool() {
