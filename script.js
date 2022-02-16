@@ -17,8 +17,14 @@ function addBookToLibrary(book) {
 // Show everything that has been put in the library
 function showLibrary() {
   booksDisplay.textContent = "";
-  myLibrary.forEach (book => booksDisplay.textContent += `${book.info}`);
+  myLibrary.forEach (book => {
+    const newPara = document.createElement("p");
+    newPara.textContent = `${book.info}`;
+    booksDisplay.appendChild(newPara);
+  })
+    
 }
+
 
 function readBool() {
   if (document.querySelector(`input[name="boolRead"]:checked`).value === "true") {
