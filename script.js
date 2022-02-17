@@ -64,7 +64,6 @@ btnClose.addEventListener("click", () => {
   resetForm();
 })
 
-
 btnAddBook.addEventListener("click", () => {
   // Check to see what radio button is checked. Yes = True. No = False
   
@@ -83,17 +82,17 @@ btnAddBook.addEventListener("click", () => {
 
   updateTotals(boolRead);
   showLibrary();
-  // resetForm();
+  resetForm();
 })
 
 // Create a new book from the form data and add it to the library
 // when Enter is pressed.
-// document.addEventListener("keyup", function(e) {
-//   if (e.key === "Enter"){
-//     e.preventDefault();
-//     btnAddBook.click();
-//   }
-// })
+document.addEventListener("keyup", function(e) {
+  if (e.key === "Enter"){
+    e.preventDefault();
+    btnAddBook.click();
+  }
+})
 
 function resetForm() {
   document.querySelector("#title").value = "";
