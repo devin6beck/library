@@ -41,8 +41,9 @@ function readBool() {
   }
 }
 
-
+const btnClose = document.querySelector("#close");
 const btnAddBook = document.querySelector("#btnAddBook");
+const btnNewBook = document.querySelector("#btnNewBook");
 const booksDisplay = document.querySelector("#booksDisplay");
 const booksRead = document.querySelector("#books-read");
 
@@ -54,6 +55,14 @@ const booksReadTotal = document.querySelector("#booksReadTotal");
 const booksNotReadTotal = document.querySelector("#booksNotReadTotal");
 const booksTotal = document.querySelector("#booksTotal");
 
+btnNewBook.addEventListener("click", () => {
+  document.getElementById("formContainer").style.display = "flex";
+})
+
+btnClose.addEventListener("click", () => {
+  document.getElementById("formContainer").style.display = "none";
+  resetForm();
+})
 
 
 btnAddBook.addEventListener("click", () => {
@@ -74,17 +83,17 @@ btnAddBook.addEventListener("click", () => {
 
   updateTotals(boolRead);
   showLibrary();
-  resetForm();
+  // resetForm();
 })
 
 // Create a new book from the form data and add it to the library
 // when Enter is pressed.
-document.addEventListener("keyup", function(e) {
-  if (e.key === "Enter"){
-    e.preventDefault();
-    btnAddBook.click();
-  }
-})
+// document.addEventListener("keyup", function(e) {
+//   if (e.key === "Enter"){
+//     e.preventDefault();
+//     btnAddBook.click();
+//   }
+// })
 
 function resetForm() {
   document.querySelector("#title").value = "";

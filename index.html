@@ -8,33 +8,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="leftContainer">
-    <h1>Library</h1>
-    <form action="">
-      <label for="title">Title:</label>
-      <input type="text" id="title"><br>
-      <label for="author">Author:</label>
-      <input type="text" id="author"><br>
-      <label for="pages">Pages:</label>
-      <input type="number" id="pages"><br>
+  <div id="formContainer">
+    <form >
+
+      
+      <span id="close">&times;</span>
+      <h3 id="formHeader">New Book Details</h3>
+
+      <div id="bookDetails">
+        <label for="title">Title</label>
+        <input type="text" id="title"><br>
+        <label for="author">Author</label>
+        <input type="text" id="author"><br>
+        <label for="pages">Pages</label>
+        <input type="number" id="pages"><br>
+      </div>  
+
       <p>Have you read this book?</p>
       <label for="readTrue">Yes</label>
       <input checked type="radio" name="boolRead" class="boolRead" id="readTrue" value="true">
       <label for="readFalse">No</label>
       <input type="radio" name="boolRead" class="boolRead" id="readFalse" value="false"><br>
-      <input type="submit" value="Add Book">
+      <input type="submit" id="btnAddBook" value="Add Book">
+      
     </form>
   </div>
 
-  <div id="rightContainer">
-    <div id="library-info">
-      <p>Books Read: <span id="booksReadTotal">0</span></p>
-      <p>Books Not Read: <span id="booksNotReadTotal">0</span></p>
-      <p>Total Books: <span id="booksTotal">0</span></p>
-    </div>
-    <button id="btnAddBook">+</button>
+  <div id="mainContainer">
+    <header>
+      <h1>Library</h1>
+      <div id="libraryLog">
+        <h2>Libray Log</h2>
+        <p class="logItem">Books Read: <span id="booksReadTotal">0</span></p>
+        <p class="logItem">Books Not Read: <span id="booksNotReadTotal">0</span></p>
+        <p class="logItem">Total Books: <span id="booksTotal">0</span></p>
+      </div>
+    </header>
+    <button id="btnNewBook">+ New Book</button>
     <h2>Books in the Library:</h2>
     <div id="booksDisplay">
+      
 
     </div>
     
