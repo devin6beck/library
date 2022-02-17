@@ -104,3 +104,15 @@ function updateTotals(boolRead) {
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
+
+// Create a new book from the form data and add it to the library
+// when Enter is pressed.
+document.addEventListener("keyup", function(e) {
+  if (document.getElementById("formContainer").style.display !== "flex") {
+    return
+  }
+  if (e.key === "Enter"){
+    e.preventDefault();
+    btnAddBook.click();
+  }
+})
