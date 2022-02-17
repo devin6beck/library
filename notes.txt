@@ -7,12 +7,3 @@
 
 -Add a button on each book’s display to remove the book from the library.
 
-- maybe change it so that clicking an "add" button brings up a form allowing
--- users to input the details for the new book. 
---- start the css of the form container to display:none;
----- Then when the add book button is clicked change the display to flex or block...
------ Once the book is added change the display back to none. 
-
-!!! App is broken in CSS branch
--- why is btnAddBook being called when the page is first loaded?
--- why is the page reseting after you add the new book?
