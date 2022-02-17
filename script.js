@@ -86,6 +86,7 @@ function showLibrary() {
   // append that new p element to the booksDisplay.
   myLibrary.forEach (book => {
     const newPara = document.createElement("p");
+    newPara.classList.add("book");
     newPara.textContent = `${book.info}`;
     booksDisplay.appendChild(newPara);
   })

@@ -47,6 +47,7 @@ form > span {
 
 #mainContainer {
   background-color: rgb(241, 235, 235);
+  display: flex;
   height: 100vh;
   width: 100vw;
 }
@@ -77,4 +78,8 @@ header {
   bottom:   0;
   margin-right: 40px;
   background-color: rgb(117, 236, 117);
+}
+
+.book {
+  border: 1px solid black;
 }
