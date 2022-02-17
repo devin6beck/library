@@ -1,5 +1,5 @@
 
-let myLibrary = [];
+
 
 class book {
   constructor(title, author, pages, read) {
@@ -11,9 +11,69 @@ class book {
   }
 }
 
+let myLibrary = [];
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+const btnNewBook = document.querySelector("#btnNewBook");
+const btnAddBook = document.querySelector("#btnAddBook");
+
+const btnClose = document.querySelector("#close");
+
+
+
+
+
+btnNewBook.addEventListener("click", newBook);
+btnAddBook.addEventListener("click", addBook);
+btnClose.addEventListener("click", closeForm);
+
+
+
+function newBook() {
+  document.getElementById("formContainer").style.display = "flex";
+}
+
+function addBook() {
+  // Check to see what radio button is checked. Yes = True. No = False
+
+  boolRead = readBool();
+
+  // get data out of forms
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = Number(document.querySelector("#pages").value);
+
+  // make new book from the data
+  const newBook = new book(title, author, pages, boolRead);
+
+  //add new book to library
+  addBookToLibrary(newBook);
+
+  updateTotals(boolRead);
+  showLibrary();
+  closeForm()
+  console.log("book added")
+}
+
+function closeForm() {
+  document.getElementById("formContainer").style.display = "none";
+  resetForm();
+}
+
+
+function resetForm() {
+  document.querySelector("#title").value = "";
+  document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+  document.querySelector("#readTrue").checked = true;
+}
+
+// check to see what radio button is checked. Yes or No (True or False)
+function readBool() {
+  if (document.querySelector(`input[name="boolRead"]:checked`).value === "true") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Show everything that has been put in the library
@@ -29,76 +89,6 @@ function showLibrary() {
     newPara.textContent = `${book.info}`;
     booksDisplay.appendChild(newPara);
   })
-    
-}
-
-// check to see what radio button is checked. Yes or No (True or False)
-function readBool() {
-  if (document.querySelector(`input[name="boolRead"]:checked`).value === "true") {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-const btnClose = document.querySelector("#close");
-const btnAddBook = document.querySelector("#btnAddBook");
-const btnNewBook = document.querySelector("#btnNewBook");
-const booksDisplay = document.querySelector("#booksDisplay");
-const booksRead = document.querySelector("#books-read");
-
-let title;
-let author;
-let pages;
-let boolRead;
-const booksReadTotal = document.querySelector("#booksReadTotal");
-const booksNotReadTotal = document.querySelector("#booksNotReadTotal");
-const booksTotal = document.querySelector("#booksTotal");
-
-btnNewBook.addEventListener("click", () => {
-  document.getElementById("formContainer").style.display = "flex";
-})
-
-btnClose.addEventListener("click", () => {
-  document.getElementById("formContainer").style.display = "none";
-  resetForm();
-})
-
-btnAddBook.addEventListener("click", () => {
-  // Check to see what radio button is checked. Yes = True. No = False
-  
-  boolRead = readBool();
-
-  // get data out of forms
-  title = document.querySelector("#title").value;
-  author = document.querySelector("#author").value;
-  pages = Number(document.querySelector("#pages").value);
-
-  // make new book from the data
-  const newBook = new book(title, author, pages, boolRead);
-
-  //add new book to library
-  addBookToLibrary(newBook);
-
-  updateTotals(boolRead);
-  showLibrary();
-  resetForm();
-})
-
-// Create a new book from the form data and add it to the library
-// when Enter is pressed.
-document.addEventListener("keyup", function(e) {
-  if (e.key === "Enter"){
-    e.preventDefault();
-    btnAddBook.click();
-  }
-})
-
-function resetForm() {
-  document.querySelector("#title").value = "";
-  document.querySelector("#author").value = "";
-  document.querySelector("#pages").value = "";
-  document.querySelector("#readTrue").checked = true;
 }
 
 function updateTotals(boolRead) {
@@ -108,5 +98,8 @@ function updateTotals(boolRead) {
     booksNotReadTotal.textContent++;
   }
   booksTotal.textContent++;
+}
 
+function addBookToLibrary(book) {
+  myLibrary.push(book);
 }

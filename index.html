@@ -17,11 +17,11 @@
 
       <div id="bookDetails">
         <label for="title">Title</label>
-        <input type="text" id="title"><br>
+        <input type="text" id="title" autocomplete="off"><br>
         <label for="author">Author</label>
-        <input type="text" id="author"><br>
+        <input type="text" id="author" autocomplete="off"><br>
         <label for="pages">Pages</label>
-        <input type="number" id="pages"><br>
+        <input type="number" id="pages" autocomplete="off"><br>
       </div>  
 
       <p>Have you read this book?</p>
@@ -29,7 +29,7 @@
       <input checked type="radio" name="boolRead" class="boolRead" id="readTrue" value="true">
       <label for="readFalse">No</label>
       <input type="radio" name="boolRead" class="boolRead" id="readFalse" value="false"><br>
-      <input type="submit" id="btnAddBook" value="Add Book">
+      <button type="button" id="btnAddBook">Add Book</button>
       
     </form>
   </div>
