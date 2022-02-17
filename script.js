@@ -88,6 +88,10 @@ function showLibrary() {
     const newPara = document.createElement("p");
     newPara.classList.add("book");
     newPara.textContent = `${book.info}`;
+    const btnChangeRead = document.createElement("button");
+    btnChangeRead.textContent = "change read status";
+    btnChangeRead.classList.add("btnChangeRead");
+    newPara.appendChild(btnChangeRead);
     booksDisplay.appendChild(newPara);
   })
 }

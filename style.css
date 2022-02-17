@@ -82,4 +82,9 @@ header {
 
 .book {
   border: 1px solid black;
+  padding: 10px;
+}
+
+.btnChangeRead {
+  margin: 10px;
 }
