@@ -8,7 +8,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="formContainer">
+  <header>
+    <h1>Library</h1>
+    <div id="libraryLog">
+      <h2>Libray Log</h2>
+      <p class="logItem">Books Read: <span id="booksReadTotal">0</span></p>
+      <p class="logItem">Books Not Read: <span id="booksNotReadTotal">0</span></p>
+      <p class="logItem">Total Books: <span id="booksTotal">0</span></p>
+    </div>
+  </header>
+
+  <main>
+    
+      <div id="displayContainer">
+        <h2>Books in the Library:</h2>
+        <div id="booksDisplay"></div>
+      </div>
+      
+      <button id="btnNewBook">+ New Book</button>
+
+  </main>
+
+  <footer>
+    Devin Beck <a href="https://github.com/devin6beck/library">Github</a>
+  </footer>
+
+  <div id="formContainer">\
     <form >
 
       
@@ -33,27 +58,6 @@
       
     </form>
   </div>
-
-  <div id="mainContainer">
-    <header>
-      <h1>Library</h1>
-      <div id="libraryLog">
-        <h2>Libray Log</h2>
-        <p class="logItem">Books Read: <span id="booksReadTotal">0</span></p>
-        <p class="logItem">Books Not Read: <span id="booksNotReadTotal">0</span></p>
-        <p class="logItem">Total Books: <span id="booksTotal">0</span></p>
-      </div>
-    </header>
-  
-    <div id="displayContainer">
-      <h2>Books in the Library:</h2>
-      <div id="booksDisplay"></div>
-    </div>
-    
-    <button id="btnNewBook">+ New Book</button>
-    
-  </div>
-
 
 
   <script src="script.js"></script>

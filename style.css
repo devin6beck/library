@@ -1,37 +1,39 @@
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 body {
-  background-color: rgb(83, 81, 81);
+  background-color: rgb(172, 165, 165);
   border: 2px solid blue;
 }
 
-#formContainer {
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 999;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  display: none;
-  font-size: 1.5rem;
+header {
+  margin-right: 10px;
+  display: block;
+  height: 30vh;
 }
 
-form {
-  border: 2px solid black;
-  padding: 20px;
-}
-
-form > span {
-  margin-left: 90%;
-  font-size: 3rem;
-}
-
-#formHeader {
+h1 {
   text-align: center;
+}
+
+#libraryLog {
+  border: 1px solid black;
+  padding: 5px;
+  width: 150px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  /* float:right; 
+  clear:right; */
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+main {
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #bookDetails {
@@ -46,32 +48,16 @@ form > span {
   font-size: 1rem;
 }
 
-#mainContainer {
+/* #mainContainer {
   background-color: rgb(241, 235, 235);
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
   border: 2px solid purple;
-}
+} */
 
-header {
-  margin-right: 10px;
-  display: block;
-}
 
-h1 {
-  text-align: center;
-}
-
-#libraryLog {
-  border: 1px solid black;
-  padding: 5px;
-  width: 150px;
-  float:right; 
-  clear:right;
-  margin-right: 50px;
-}
 
 #booksDisplay {
   display: inline-block;
@@ -96,4 +82,39 @@ h1 {
 
 .btnChangeRead {
   margin: 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 24px;
+  height: 15vh;
+}
+
+#formContainer {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  font-size: 1.5rem;
+}
+
+form {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+form > span {
+  margin-left: 90%;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+#formHeader {
+  text-align: center;
 }
