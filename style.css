@@ -57,7 +57,9 @@ main {
   border: 2px solid purple;
 } */
 
-
+h2 {
+  text-align: center;
+}
 
 #booksDisplay {
   display: inline-block;
