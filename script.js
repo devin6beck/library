@@ -114,11 +114,21 @@ function addBookToLibrary(book) {
 // Create a new book from the form data and add it to the library
 // when Enter is pressed.
 document.addEventListener("keyup", function(e) {
-  if (document.getElementById("formContainer").style.display !== "flex") {
-    return
+  if (e.key === "Enter") {
+    if (document.getElementById("formContainer").style.display !== "flex") {
+      e.preventDefault();
+      btnNewBook.click();
+    } else {
+      e.preventDefault();
+      btnAddBook.click();
+    }
   }
-  if (e.key === "Enter"){
-    e.preventDefault();
-    btnAddBook.click();
-  }
+
+  // if (document.getElementById("formContainer").style.display !== "flex") {
+  //   return
+  // }
+  // if (e.key === "Enter"){
+  //   e.preventDefault();
+  //   btnAddBook.click();
+  // }
 })
