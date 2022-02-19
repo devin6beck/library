@@ -30,6 +30,8 @@ btnClose.addEventListener("click", closeForm);
 
 function newBook() {
   document.getElementById("formContainer").style.display = "flex";
+  document.getElementById("title").focus();
+  // document.getElementById("title").select();
 }
 
 function addBook() {
