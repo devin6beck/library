@@ -3,7 +3,7 @@
 } */
 
 body {
-  background-color: rgb(172, 165, 165);
+  background-color: rgb(235, 226, 226);
   border: 2px solid blue;
 }
 
@@ -63,7 +63,6 @@ h2 {
 
 #booksDisplay {
   display: inline-block;
-  flex-direction: column;
   border: 2px solid blue;
 }
 
