@@ -105,12 +105,23 @@ function createCard(book) {
 }
 
 function updateTotals(boolRead) {
-  if (boolRead) {
-    booksRead.textContent++;
-  } else {
-    booksUnread.textContent++;
-  }
-  booksTotal.textContent++;
+  resetTotals();
+  myLibrary.forEach(book => {
+    switch (book.read) {
+      case "Unread": booksUnread.textContent++;
+        break;
+
+      case "Read": booksRead.textContent++;
+        break;
+    }
+    booksTotal.textContent++;
+  })
+}
+
+function resetTotals() {
+  booksRead.textContent = 0;
+  booksUnread.textContent = 0;
+  booksTotal.textContent = 0;
 }
 
 function addBookToLibrary(book) {
