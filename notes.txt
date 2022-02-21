@@ -9,3 +9,6 @@
 
 -Add a button on each book’s display to remove the book from the library.
 
+
+-test adding a css reset similar to  https://github.com/necolas/normalize.css.
+--https://www.theodinproject.com/paths/full-stack-javascript/courses/intermediate-html-and-css/lessons/default-styles
