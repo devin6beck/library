@@ -1,48 +1,45 @@
-
-
+let myLibrary = [];
 
 class book {
   constructor(title, author, pages, read) {
     this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = (!read) ? "not read yet" : "have read";
+    this.author = `By: ${author}`;
+    this.pages = `${pages} pages`;
+    this.read = (!read) ? "Unread" : "Read";
     this.info = `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   }
 }
 
-let myLibrary = [];
-
-const btnNewBook = document.querySelector("#btnNewBook");
-const btnAddBook = document.querySelector("#btnAddBook");
-
-const btnClose = document.querySelector("#close");
-
-
-
-
+// buttons
+const btnNewBook = document.querySelector(".btn-newBook");
+const btnAddBook = document.querySelector(".btn-addBook");
+const btnClose = document.querySelector(".close");
 
 btnNewBook.addEventListener("click", newBook);
 btnAddBook.addEventListener("click", addBook);
 btnClose.addEventListener("click", closeForm);
 
+// spans with totals
+let booksRead = document.querySelector('.total-read');
+let booksUnread = document.querySelector('.total-unread');
+let booksTotal = document.querySelector('.total-books');
 
+let display = document.querySelector('.display');
 
 function newBook() {
-  document.getElementById("formContainer").style.display = "flex";
-  document.getElementById("title").focus();
-  // document.getElementById("title").select();
+  document.querySelector('.form-container').style.display = "block";
+  document.querySelector(".title").focus();
 }
 
 function addBook() {
   // Check to see what radio button is checked. Yes = True. No = False
 
-  boolRead = readBool();
+  const boolRead = readBool();
 
   // get data out of forms
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
-  const pages = Number(document.querySelector("#pages").value);
+  const title = document.querySelector(".title").value;
+  const author = document.querySelector(".author").value;
+  const pages = Number(document.querySelector(".pages").value);
 
   // make new book from the data
   const newBook = new book(title, author, pages, boolRead);
@@ -51,22 +48,10 @@ function addBook() {
   addBookToLibrary(newBook);
 
   updateTotals(boolRead);
+  console.log(`boolread = ${boolRead}`)
   showLibrary();
   closeForm()
   console.log("book added")
-}
-
-function closeForm() {
-  document.getElementById("formContainer").style.display = "none";
-  resetForm();
-}
-
-
-function resetForm() {
-  document.querySelector("#title").value = "";
-  document.querySelector("#author").value = "";
-  document.querySelector("#pages").value = "";
-  document.querySelector("#readTrue").checked = true;
 }
 
 // check to see what radio button is checked. Yes or No (True or False)
@@ -78,31 +63,52 @@ function readBool() {
   }
 }
 
+function closeForm() {
+  document.querySelector(".form-container").style.display = "none";
+  resetForm();
+}
+
+function resetForm() {
+  document.querySelector(".title").value = "";
+  document.querySelector(".author").value = "";
+  document.querySelector(".pages").value = "";
+  document.querySelector(".readTrue").checked = true;
+}
+
 // Show everything that has been put in the library
 function showLibrary() {
   // clear the books display first
-  booksDisplay.textContent = "";
+  display.textContent = "";
 
-  // for each book in the library array create a new p element
-  // add the new books info into that new p element
-  // append that new p element to the booksDisplay.
   myLibrary.forEach (book => {
-    const newPara = document.createElement("p");
-    newPara.classList.add("book");
-    newPara.textContent = `${book.info}`;
-    const btnChangeRead = document.createElement("button");
-    btnChangeRead.textContent = "change read status";
-    btnChangeRead.classList.add("btnChangeRead");
-    newPara.appendChild(btnChangeRead);
-    booksDisplay.appendChild(newPara);
+    const card = createCard(book);
+    display.appendChild(card);
   })
+}
+
+function createCard(book) {
+  const card = document.createElement('div')
+  card.classList.add('card');
+  const title = document.createElement('p');
+  title.textContent = `${book.title}`;
+  const author = document.createElement('p');
+  author.textContent = `${book.author}`;
+  const pages = document.createElement('p');
+  pages.textContent = `${book.pages}`;
+  const read = document.createElement('p');
+  read.textContent = `${book.read}`;
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(read);
+  return card;
 }
 
 function updateTotals(boolRead) {
   if (boolRead) {
-    booksReadTotal.textContent++;
+    booksRead.textContent++;
   } else {
-    booksNotReadTotal.textContent++;
+    booksUnread.textContent++;
   }
   booksTotal.textContent++;
 }
@@ -115,7 +121,7 @@ function addBookToLibrary(book) {
 // when Enter is pressed.
 document.addEventListener("keyup", function(e) {
   if (e.key === "Enter") {
-    if (document.getElementById("formContainer").style.display !== "flex") {
+    if (document.querySelector(".form-container").style.display !== "block") {
       e.preventDefault();
       btnNewBook.click();
     } else {
@@ -123,12 +129,4 @@ document.addEventListener("keyup", function(e) {
       btnAddBook.click();
     }
   }
-
-  // if (document.getElementById("formContainer").style.display !== "flex") {
-  //   return
-  // }
-  // if (e.key === "Enter"){
-  //   e.preventDefault();
-  //   btnAddBook.click();
-  // }
 })
