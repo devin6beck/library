@@ -14,10 +14,12 @@ class book {
 const btnNewBook = document.querySelector(".btn-newBook");
 const btnAddBook = document.querySelector(".btn-addBook");
 const btnClose = document.querySelector(".close");
+const btnDelete = document.querySelectorAll(".delete")
 
 btnNewBook.addEventListener("click", newBook);
 btnAddBook.addEventListener("click", addBook);
 btnClose.addEventListener("click", closeForm);
+
 
 // spans with totals
 let booksRead = document.querySelector('.total-read');
@@ -86,6 +88,8 @@ function showLibrary() {
 function createCard(book) {
   const card = document.createElement('div')
   card.classList.add('card');
+  let index = booksTotal.textContent;
+  card.dataset.index = index;
   const title = document.createElement('p');
   title.textContent = `${book.title}`;
   const author = document.createElement('p');
@@ -94,7 +98,6 @@ function createCard(book) {
   pages.textContent = `${book.pages}`;
   const read = document.createElement('p');
   read.textContent = `${book.read}`;
-
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
