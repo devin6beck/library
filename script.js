@@ -108,14 +108,16 @@ function createCard(book) {
   card.appendChild(read);
 
   const cardBtnDiv = document.createElement('div');
+  cardBtnDiv.classList.add('card-btn-div')
   card.appendChild(cardBtnDiv);
   const toggleRead = document.createElement('button');
   toggleRead.classList.add('toggle-read');
-  toggleRead.textContent = "Toggle Read Status";
+  toggleRead.textContent = "Read/Unread";
   cardBtnDiv.appendChild(toggleRead);
 
   const btnDelete = document.createElement('button');
   btnDelete.textContent = "Delete";
+  btnDelete.classList.add('btn-delete');
   cardBtnDiv.appendChild(btnDelete);
 
   toggleRead.addEventListener("click", () => {

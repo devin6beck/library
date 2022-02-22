@@ -20,6 +20,15 @@
 
 }
 
+button {
+  background-color: rgb(115, 252, 97);
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  width: fit-content;
+  border-radius: 25px;
+}
+
 /*          Header          */
 
 .header { 
@@ -92,14 +101,6 @@
   width: fit-content;
 }
 
-button {
-  background-color: rgb(115, 252, 97);
-  border: none;
-  font-size: 1rem;
-  font-weight: 700;
-  width: fit-content;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -108,8 +109,18 @@ button {
   width: 180px;
   flex-wrap: wrap;
   overflow: auto;
-  text-align: left;
-  padding-left: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.card-btn-div {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-delete {
+  background-color: rgb(216, 83, 83);
+  margin-left: 5px;
 }
 
 .content-right {
@@ -175,6 +186,16 @@ button {
   display: flex;
   flex-direction: column;
   width: 35%;
+}
+
+.bool-container p {
+  border: 1px solid black;
+  margin: 25px 0px 0px 0px;
+  height: fit-content;
+}
+
+.bool-container {
+  margin-bottom: 25px;
 }
 
 .close {
