@@ -1,4 +1,5 @@
 let myLibrary = [];
+let counter = 0;
 
 class book {
   constructor(title, author, pages, read, index) {
@@ -43,7 +44,8 @@ function addBook() {
   const title = document.querySelector(".title").value;
   const author = document.querySelector(".author").value;
   const pages = Number(document.querySelector(".pages").value);
-  const index = booksTotal.textContent;
+  const index = counter;
+  counter++;
 
   // make new book from the data
   const newBook = new book(title, author, pages, boolRead, index);
