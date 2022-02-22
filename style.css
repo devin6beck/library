@@ -161,7 +161,7 @@ button {
 
 .form-container {
   width: 50vw;
-  height: fit-content;
+  height: 75vh;
   place-self: center;
   position: absolute;
   z-index: 999;
@@ -185,17 +185,11 @@ button {
 .book-details {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 40%;
 }
 
-.bool-container p {
-  border: 1px solid black;
-  margin: 25px 0px 0px 0px;
-  height: fit-content;
-}
-
-.bool-container {
-  margin-bottom: 25px;
+.book-details p {
+  margin-bottom: 5px;
 }
 
 .close {
