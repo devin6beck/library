@@ -1,13 +1,5 @@
 
-- have the cursor start in the title input when new book is pushed. 
-
 - change css to make it look better
-
-
--Add a button on each book’s display to change its read status.
---added button but it does not work yet. 
-
--Add a button on each book’s display to remove the book from the library.
 
 
 -test adding a css reset similar to  https://github.com/necolas/normalize.css.
