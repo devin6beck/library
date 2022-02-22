@@ -5,7 +5,7 @@ class book {
     this.title = title;
     this.author = `By: ${author}`;
     this.pages = `${pages} pages`;
-    this.read = (!read) ? "Unread" : "Read";
+    this.read = read;
     this.info = `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   }
 }
@@ -56,11 +56,7 @@ function addBook() {
 
 // check to see what radio button is checked. Yes or No (True or False)
 function readBool() {
-  if (document.querySelector(`input[name="boolRead"]:checked`).value === "true") {
-    return true;
-  } else {
-    return false;
-  }
+  return document.querySelector(`input[name="boolRead"]:checked`).value;
 }
 
 function closeForm() {
@@ -86,6 +82,7 @@ function showLibrary() {
   })
 }
 
+
 function createCard(book) {
   const card = document.createElement('div')
   card.classList.add('card');
@@ -97,14 +94,37 @@ function createCard(book) {
   pages.textContent = `${book.pages}`;
   const read = document.createElement('p');
   read.textContent = `${book.read}`;
+
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
   card.appendChild(read);
+
+  const cardBtnDiv = document.createElement('div');
+  card.appendChild(cardBtnDiv);
+  const toggleRead = document.createElement('button');
+  toggleRead.classList.add('toggle-read');
+  toggleRead.textContent = "Toggle Read Status";
+  cardBtnDiv.appendChild(toggleRead);
+  toggleRead.addEventListener("click", () => {
+    if (book.read === "Read") {
+      book.read = "Unread";
+    } else {
+      book.read = "Read";
+    }
+    updateTotals();
+    showLibrary();
+
+  });
+
+
+
   return card;
 }
 
-function updateTotals(boolRead) {
+
+
+function updateTotals() {
   resetTotals();
   myLibrary.forEach(book => {
     switch (book.read) {
