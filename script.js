@@ -168,9 +168,7 @@ function resetTotals() {
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
-
-// Create a new book from the form data and add it to the library
-// when Enter is pressed.
+// Keyboard support.
 document.addEventListener("keyup", function(e) {
   if (e.key === "Enter") {
     if (document.querySelector(".form-container").style.display !== "block") {
